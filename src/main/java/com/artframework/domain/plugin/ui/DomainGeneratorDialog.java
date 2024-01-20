@@ -307,16 +307,18 @@ public class DomainGeneratorDialog extends JDialog {
             packageParam.put("domainPackage", t_domain_package.getText());
             packageParam.put("controllerPackage", t_controller_package.getText());
 
-            GenerateUtils.generateTables(t_mapper_save.getText()
-                    , t_entity_save.getText()
-                    , GlobalSetting.INSTANCE.getTableList(), packageParam, chk_entity_over.isSelected(), chk_mapper_over.isSelected());
-            if (chk_domain_over.isSelected()) {
-                GenerateUtils.generateDomains(t_domain_save.getText(),
-                        GlobalSetting.INSTANCE.getDomainList(), packageParam);
+            if(chk_do.isSelected() ||chk_mapper.isSelected()){
+                GenerateUtils.generateTables(t_mapper_save.getText()
+                        , t_entity_save.getText()
+                        , GlobalSetting.INSTANCE.getTableList(), packageParam, chk_entity_over.isSelected(), chk_mapper_over.isSelected());
             }
-            if (chk_controller_over.isSelected()) {
+            if(chk_domain.isSelected()){
+                GenerateUtils.generateDomains(t_domain_save.getText(),
+                        GlobalSetting.INSTANCE.getDomainList(), packageParam,chk_domain_over.isSelected());
+            }
+            if (chk_controller.isSelected()) {
                 GenerateUtils.generateController(t_controller_save.getText(),
-                        GlobalSetting.INSTANCE.getDomainList(), packageParam);
+                        GlobalSetting.INSTANCE.getDomainList(), packageParam,chk_controller_over.isSelected());
             }
             Messages.showInfoMessage(this.contentPane, "生成成功", "提示");
         } catch (Exception ex) {
@@ -349,9 +351,15 @@ public class DomainGeneratorDialog extends JDialog {
         t_controller_save.setText(cacheMap.getOrDefault("t_controller_save", ""));
 
         t_domainFile.setText(cacheMap.getOrDefault("t_domainFile", ""));
-        chk_mapper_over.setSelected(false);
-        chk_entity_over.setSelected(true);
-        chk_domain_over.setSelected(true);
+
+        chk_mapper_over.setSelected(Boolean.parseBoolean(cacheMap.getOrDefault("chk_mapper_over", Boolean.toString(false))));
+        chk_entity_over.setSelected(Boolean.parseBoolean(cacheMap.getOrDefault("chk_entity_over", Boolean.toString(false))));
+        chk_domain_over.setSelected(Boolean.parseBoolean(cacheMap.getOrDefault("chk_domain_over", Boolean.toString(false))));
+        chk_controller_over.setSelected(Boolean.parseBoolean(cacheMap.getOrDefault("chk_controller_over", Boolean.toString(false))));
+        chk_mapper.setSelected(Boolean.parseBoolean(cacheMap.getOrDefault("chk_mapper", Boolean.toString(false))));
+        chk_do.setSelected(Boolean.parseBoolean(cacheMap.getOrDefault("chk_entity", Boolean.toString(true))));
+        chk_domain.setSelected(Boolean.parseBoolean(cacheMap.getOrDefault("chk_domain", Boolean.toString(true))));
+        chk_controller.setSelected(Boolean.parseBoolean(cacheMap.getOrDefault("chk_controller", Boolean.toString(false))));
     }
     @Override
     public void dispose() {
@@ -373,6 +381,17 @@ public class DomainGeneratorDialog extends JDialog {
         cacheMap.put("t_controller_save", t_controller_save.getText());
 
         cacheMap.put("t_domainFile", t_domainFile.getText());
+        cacheMap.put("chk_mapper_over", Boolean.toString(chk_mapper_over.isSelected()));
+        cacheMap.put("chk_entity_over", Boolean.toString(chk_entity_over.isSelected()));
+        cacheMap.put("chk_domain_over", Boolean.toString(chk_domain_over.isSelected()));
+        cacheMap.put("chk_controller_over", Boolean.toString(chk_controller_over.isSelected()));
+        cacheMap.put("chk_mapper", Boolean.toString(chk_mapper.isSelected()));
+        cacheMap.put("chk_entity", Boolean.toString(chk_do.isSelected()));
+        cacheMap.put("chk_domain", Boolean.toString(chk_domain.isSelected()));
+        cacheMap.put("chk_controller", Boolean.toString(chk_controller.isSelected()));
+
+        chk_entity_over.setSelected(false);
+        chk_domain_over.setSelected(false);
         super.dispose();
     }
 
