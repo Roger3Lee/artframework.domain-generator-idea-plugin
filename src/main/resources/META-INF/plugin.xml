@@ -5,7 +5,7 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Domain-Code-Generator</name>
+    <name>DDD Code Generator</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="support@artframework.com" url="https://github.com/Roger3Lee/domain-generator-idea-plugin">Art Framework</vendor>
