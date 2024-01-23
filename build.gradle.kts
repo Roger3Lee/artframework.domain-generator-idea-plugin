@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.artframework"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ repositories {
 intellij {
     version.set("2021.2")
     type.set("IC") // Target IDE Platform
-
+    updateSinceUntilBuild.set(false)
     plugins.set(listOf(/* Plugin Dependencies */))
 }
 
@@ -25,11 +25,12 @@ tasks {
     withType<JavaCompile> {
         sourceCompatibility = "11"
         targetCompatibility = "11"
+        options.encoding="UTF-8"
     }
 
     patchPluginXml {
         sinceBuild.set("212")
-        untilBuild.set("222.*")
+//        untilBuild.set("*.*")
     }
 
     signPlugin {

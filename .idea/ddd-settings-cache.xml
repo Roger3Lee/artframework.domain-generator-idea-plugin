@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="settings.cache">
+    <option name="cacheMap">
+      <map>
+        <entry key="chk_controller" value="true" />
+        <entry key="chk_controller_over" value="true" />
+        <entry key="chk_domain" value="true" />
+        <entry key="chk_domain_over" value="false" />
+        <entry key="chk_entity" value="true" />
+        <entry key="chk_entity_over" value="false" />
+        <entry key="chk_mapper" value="true" />
+        <entry key="chk_mapper_over" value="true" />
+        <entry key="password" value="123456" />
+        <entry key="schema" value="public" />
+        <entry key="t_controller_package" value="com.artframework.servicemesh.controllers" />
+        <entry key="t_controller_save" value="D:\github\service-mesh\service-mesh-be\service-mesh-boot\src\main\java\com\artframework\servicemesh\controllers" />
+        <entry key="t_domainFile" value="D:\github\service-mesh\service-mesh-be\config\domain.xml" />
+        <entry key="t_domain_package" value="com.artframework.servicemesh.domains" />
+        <entry key="t_domain_save" value="D:\github\service-mesh\service-mesh-be\service-mesh-boot\src\main\java\com\artframework\servicemesh\domains" />
+        <entry key="t_eneity_package" value="com.artframework.servicemesh.entities" />
+        <entry key="t_entity_save" value="D:\github\service-mesh\service-mesh-be\service-mesh-boot\src\main\java\com\artframework\servicemesh\entities" />
+        <entry key="t_mapper_package" value="com.artframework.servicemesh.mappers" />
+        <entry key="t_mapper_save" value="D:\github\service-mesh\service-mesh-be\service-mesh-boot\src\main\java\com\artframework\servicemesh\mappers" />
+        <entry key="type" value="Polar DB" />
+        <entry key="url" value="jdbc:postgresql://localhost:5432/service_mesh" />
+        <entry key="user" value="postgres" />
+      </map>
+    </option>
+  </component>
+</project>
